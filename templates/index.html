@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}"">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffecd1; /* Jasny pomarańczowy */
+            color: #333;
+        }
+        header {
+            background-color: #ff8c42; /* Ciemny pomarańczowy */
+            color: white;
+            padding: 1em 0;
+            text-align: center;
+        }
+        nav {
+            background-color: #ffa45b; /* Średni pomarańczowy */
+            overflow: hidden;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        nav ul li {
+            display: inline-block;
+        }
+        nav ul li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+        nav ul li a:hover {
+            background-color: #ff7b2c; /* Ciemniejszy pomarańczowy */
+            color: #333;
+        }
+        section {
+            padding: 20px;
+            background-color: #ffe5b4; /* Bardzo jasny pomarańczowy */
+            margin: 20px auto;
+            max-width: 800px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+      .navbar-custom {
+        background-color: #ffa45b;
+      }
+      .navbar-custom .navbar-brand,
+      .navbar-custom .nav-link {
+        color: white;
+      }
+      .navbar-custom .nav-link:hover {
+        background-color: darkorange;
+      }
+
+        .carousel-container {
+        max-width: 600px; /* Maksymalna szerokość */
+        margin: 0 auto; /* Wyśrodkowanie */
+      }
+      .carousel-inner img {
+        height: 300px; /* Wysokość obrazów */
+        object-fit: cover; /* Dopasowanie obrazów */
+      }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Home</h1>
+    </header>
+
+    <nav class="navbar navbar-expand-lg navbar-custom">
+      <a class="navbar-brand" href="#">Menu</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('aboutme') }}">About Me</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('gallery') }}">Gallery</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+      {% block content %}{% endblock %}
+    </div>
+
+
+    <section>
+    <p style="text-align:left">Welcome to [Company Name]!
+
+At [Company Name], we're dedicated to providing top-quality [products/services] that exceed your expectations. Our mission is to [briefly describe mission or purpose].<br><br>
+
+Why choose us?<br><br>
+
+Quality: We pride ourselves on offering only the highest quality [products/services], ensuring your satisfaction with every purchase.<br>
+
+Customer Service: Our friendly and knowledgeable team is here to assist you every step of the way. Have a question or need assistance? Don't hesitate to reach out!<br>
+
+Affordability: We believe that everyone should have access to [products/services] they love, which is why we strive to keep our prices competitive without compromising on quality.<br><br>
+
+Browse our website to explore our wide range of [products/services], and feel free to contact us if you have any questions or special requests. Thank you for choosing [Company Name]!</p></section>
+
+    <div class="carousel-container">
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="{{ url_for('static', filename='t1.png') }}" class="d-block w-100" alt="First slide">
+          </div>
+          <div class="carousel-item">
+            <img src="{{ url_for('static', filename='t2.png') }}" class="d-block w-100" alt="Second slide">
+          </div>
+          <div class="carousel-item">
+            <img src="{{ url_for('static', filename='t3.png') }}" class="d-block w-100" alt="Third slide">
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+
+   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
